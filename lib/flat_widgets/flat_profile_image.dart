@@ -5,24 +5,30 @@ class FlatProfileImage extends StatelessWidget {
   // TODO:: This widget requires major refactoring of code.
   // TODO:: A lot of components are static
 
-  final bool momentIndicator;
+  final bool outlineIndicator;
+  final Color outlineColor;
   final bool onlineIndicator;
+  final Color onlineColor;
   final String imageUrl;
   final double width;
   final double height;
+  final Function onPressed;
 
   FlatProfileImage(
     {
-      this.momentIndicator,
+      this.outlineIndicator,
+      this.onlineColor,
+      this.outlineColor,
       this.imageUrl,
       this.width,
       this.height,
-      this.onlineIndicator
+      this.onlineIndicator,
+      this.onPressed,
     }
   );
 
   Border flatIndicatorBorder(Color color) {
-    if (momentIndicator == null) {
+    if (outlineIndicator == null) {
       return null;
     } else {
       return Border.all(
@@ -58,41 +64,49 @@ class FlatProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(momentIndicator != null && momentIndicator == true) {
-      return Stack(
-        children: [
-          Container(
-            margin: EdgeInsets.all(8.0),
-            width: width ?? 60.0,
-            height: height ?? 60.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(200.0), // TODO:: Dynamic Border radius
-              border: flatIndicatorBorder(Theme.of(context).primaryColor)),
-            child: FlatIndicatorImage(
-              width: imageWidth(),
-              height: imageHeight(),
-              indicator: momentIndicator ?? false,
-              image: imageUrl,
+    if(outlineIndicator != null && outlineIndicator == true) {
+      return GestureDetector(
+        onTap: onPressed,
+        child: Stack(
+          children: [
+            Container(
+              margin: EdgeInsets.all(8.0),
+              width: width ?? 60.0,
+              height: height ?? 60.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(200.0), // TODO:: Dynamic Border radius
+                border: flatIndicatorBorder(outlineColor ?? Theme.of(context).primaryColor)),
+              child: FlatIndicatorImage(
+                width: imageWidth(),
+                height: imageHeight(),
+                indicator: outlineIndicator ?? false,
+                image: imageUrl,
+              ),
             ),
-          ),
-          OnlineIndicator(
-            isEnabled: showOnlineIndicator(),
-          ),
-        ],
+            OnlineIndicator(
+              isEnabled: showOnlineIndicator(),
+              color: onlineColor,
+            ),
+          ],
+        ),
       );
     } else {
-      return Stack(
-        children: [
-          FlatIndicatorImage(
-            width: width ?? 60.0,
-            height: height ?? 60.0,
-            indicator: momentIndicator ?? false,
-            image: imageUrl,
-          ),
-          OnlineIndicator(
-            isEnabled: showOnlineIndicator(),
-          )
-        ],
+      return GestureDetector(
+        onTap: onPressed,
+        child: Stack(
+          children: [
+            FlatIndicatorImage(
+              width: width ?? 60.0,
+              height: height ?? 60.0,
+              indicator: outlineIndicator ?? false,
+              image: imageUrl,
+            ),
+            OnlineIndicator(
+              isEnabled: showOnlineIndicator(),
+              color: onlineColor,
+            )
+          ],
+        ),
       );
     }
   }
@@ -100,7 +114,8 @@ class FlatProfileImage extends StatelessWidget {
 
 class OnlineIndicator extends StatelessWidget {
   final bool isEnabled;
-  OnlineIndicator({this.isEnabled});
+  final Color color;
+  OnlineIndicator({this.isEnabled, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +126,7 @@ class OnlineIndicator extends StatelessWidget {
         width: isEnabled ? 15.0 : 0.0,
         height: isEnabled ? 15.0 : 0.0,
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
+          color: color ?? Theme.of(context).primaryColor,
           border: Border.all(
             color: Colors.white,
             width: 2.0,
@@ -145,11 +160,22 @@ class FlatIndicatorImage extends StatelessWidget {
       width: width,
       height: height,
       child: ClipOval(
-        child: Image.network(
-          image ?? 'https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg',
-          fit: BoxFit.cover,
-        ),
+        child: profileImage(),
       ),
     );
+  }
+
+  Widget profileImage() {
+    if(image == null || image.isEmpty){
+      return Image.asset(
+        'assets/images/default_profile_image.png',
+        fit: BoxFit.cover,
+      );
+    } else {
+      return Image.network(
+        image ?? 'https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg',
+        fit: BoxFit.cover,
+      );
+    }
   }
 }
