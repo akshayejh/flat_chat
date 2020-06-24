@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
 
-class FlatAddMomentBtn extends StatelessWidget {
+class FlatAddStoryBtn extends StatelessWidget {
 
-  // TODO:: Look into user touch feedback
-  // TODO:: Border radius may only work for a particular width
-
-  final IconData icon;
+  final Icon icon;
   final String image; // Image will not be used if the icon is assigned.
   final Color backgroundColor;
   final Color iconColor;
-  final double width;
-  final double height;
+  final double size;
   final Function onPressed;
-  FlatAddMomentBtn(
+
+  FlatAddStoryBtn(
     {
       this.icon,
       this.image,
       this.backgroundColor,
       this.iconColor,
-      this.width,
-      this.height,
+      this.size,
       this.onPressed
     }
   );
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkResponse(
       onTap: onPressed,
       child: Container(
         margin: EdgeInsets.all(8.0),
-        width: width ?? 60.0,
-        height: height ?? 60.0,
+        width: size ?? 60.0,
+        height: size ?? 60.0,
         decoration: BoxDecoration(
-            color: backgroundColor ?? Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(60.0)),
-        child: FBtnIcon(
+          color: backgroundColor ?? Theme.of(context).primaryColor,
+          shape: BoxShape.circle,
+        ),
+        child: BtnIcon(
           icon: icon,
           color: iconColor,
           image: image,
@@ -45,19 +42,16 @@ class FlatAddMomentBtn extends StatelessWidget {
   }
 }
 
-class FBtnIcon extends StatelessWidget {
-  final IconData icon;
+class BtnIcon extends StatelessWidget {
+  final Icon icon;
   final Color color;
   final String image;
-  FBtnIcon({this.icon, this.color, this.image});
+  BtnIcon({this.icon, this.color, this.image});
 
   @override
   Widget build(BuildContext context) {
      if(icon != null) {
-      return Icon(
-        icon,
-        color: color ?? Colors.white,
-      );
+      return icon;
     } else {
        return Image.asset(
         image ?? 'assets/images/flat_add_icon.png',

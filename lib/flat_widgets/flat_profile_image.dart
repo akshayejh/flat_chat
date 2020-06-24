@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 class FlatProfileImage extends StatelessWidget {
 
-  // TODO:: This widget requires major refactoring of code.
-  // TODO:: A lot of components are static
-
   final bool outlineIndicator;
   final Color outlineColor;
   final bool onlineIndicator;
   final Color onlineColor;
   final String imageUrl;
-  final double width;
-  final double height;
+  final double size;
   final Function onPressed;
+  final Color backgroundColor;
 
   FlatProfileImage(
     {
@@ -20,10 +17,10 @@ class FlatProfileImage extends StatelessWidget {
       this.onlineColor,
       this.outlineColor,
       this.imageUrl,
-      this.width,
-      this.height,
+      this.size,
       this.onlineIndicator,
       this.onPressed,
+      this.backgroundColor,
     }
   );
 
@@ -38,17 +35,9 @@ class FlatProfileImage extends StatelessWidget {
     }
   }
 
-  double imageWidth() {
-    if(width != null) {
-      return width - 4.0;
-    } else {
-      return 8.0;
-    }
-  }
-
-  double imageHeight() {
-    if(height != null) {
-      return height - 4.0;
+  double imageSize() {
+    if(size != null) {
+      return size - 4.0;
     } else {
       return 8.0;
     }
@@ -65,20 +54,20 @@ class FlatProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if(outlineIndicator != null && outlineIndicator == true) {
-      return GestureDetector(
+      return InkResponse(
         onTap: onPressed,
         child: Stack(
           children: [
             Container(
               margin: EdgeInsets.all(8.0),
-              width: width ?? 60.0,
-              height: height ?? 60.0,
+              width: size ?? 60.0,
+              height: size ?? 60.0,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(200.0), // TODO:: Dynamic Border radius
+                shape: BoxShape.circle,
                 border: flatIndicatorBorder(outlineColor ?? Theme.of(context).primaryColor)),
               child: FlatIndicatorImage(
-                width: imageWidth(),
-                height: imageHeight(),
+                width: imageSize(),
+                height: imageSize(),
                 indicator: outlineIndicator ?? false,
                 image: imageUrl,
               ),
@@ -86,24 +75,28 @@ class FlatProfileImage extends StatelessWidget {
             OnlineIndicator(
               isEnabled: showOnlineIndicator(),
               color: onlineColor,
+              size: size ?? 60.0,
+              borderColor: backgroundColor,
             ),
           ],
         ),
       );
     } else {
-      return GestureDetector(
+      return InkResponse(
         onTap: onPressed,
         child: Stack(
           children: [
             FlatIndicatorImage(
-              width: width ?? 60.0,
-              height: height ?? 60.0,
+              width: size ?? 60.0,
+              height: size ?? 60.0,
               indicator: outlineIndicator ?? false,
               image: imageUrl,
             ),
             OnlineIndicator(
               isEnabled: showOnlineIndicator(),
               color: onlineColor,
+              size: size ?? 60.0,
+              borderColor: backgroundColor,
             )
           ],
         ),
@@ -115,21 +108,25 @@ class FlatProfileImage extends StatelessWidget {
 class OnlineIndicator extends StatelessWidget {
   final bool isEnabled;
   final Color color;
-  OnlineIndicator({this.isEnabled, this.color});
+  final double size;
+  final Color borderColor;
+  OnlineIndicator({this.isEnabled, this.color, this.size, this.borderColor});
 
   @override
   Widget build(BuildContext context) {
+    double position = (size/100) * 15.0;
+    print("Size: $size, Position: $position");
     return Positioned(
-      bottom: 10.0, // TODO:: Both positions needs to be dynamic
-      right: 10.0,
+      bottom: position ?? 0.0,
+      right: position ?? 0.0,
       child: Container(
         width: isEnabled ? 15.0 : 0.0,
         height: isEnabled ? 15.0 : 0.0,
         decoration: BoxDecoration(
           color: color ?? Theme.of(context).primaryColor,
           border: Border.all(
-            color: Colors.white,
-            width: 2.0,
+            color: borderColor ?? Colors.white,
+            width: 2.5,
           ),
           borderRadius: BorderRadius.circular(15.0)
         ),
@@ -154,7 +151,7 @@ class FlatIndicatorImage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey,
-        borderRadius: BorderRadius.circular(60.0)
+        shape: BoxShape.circle
       ),
       margin: EdgeInsets.all(imageMargin()),
       width: width,
@@ -173,7 +170,7 @@ class FlatIndicatorImage extends StatelessWidget {
       );
     } else {
       return Image.network(
-        image ?? 'https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg',
+        image,
         fit: BoxFit.cover,
       );
     }

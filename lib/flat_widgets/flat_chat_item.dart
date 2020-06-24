@@ -11,6 +11,7 @@ class FlatChatItem extends StatelessWidget {
   final Color messageColor;
   final Color backgroundColor;
   final bool multiLineMessage;
+  final Function onPressed;
 
   FlatChatItem({
     this.profileImage,
@@ -21,14 +22,13 @@ class FlatChatItem extends StatelessWidget {
     this.messageColor,
     this.backgroundColor,
     this.multiLineMessage,
+    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        print("Working");
-      },
+      onTap: onPressed,
       child: Ink(
         color: backgroundColor ?? Colors.white,
         child: Container(
