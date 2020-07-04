@@ -1,3 +1,4 @@
+
 # Flat Social
 
 Flat Chat UI Kit
@@ -10,9 +11,18 @@ This project is currently work in progress.
 
 # Widgets:
 
-I will be writing documentation really soon.
+I will be writing complete documentation really soon.
 
-- Page Wrapper
+## Page Wrapper
+
+    FlatPageWrapper(
+	    scrollType: ScrollType.fixedHeader, // There are two types of scroll header, one "Fixed Header", another "Floating Header"
+	    header: FlatPageHeader(), // Another widget from the UI Kit.
+	    children: [
+		    // Add widgets as you would do in a ListView.
+	    ]
+    );
+
 - Page Header
 - Section Header
 - Add Story Button
