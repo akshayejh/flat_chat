@@ -30,7 +30,7 @@ class FlatChatItem extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Ink(
-        color: backgroundColor ?? Colors.white,
+        color: backgroundColor ?? Theme.of(context).primaryColorLight,
         child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: 16.0,
@@ -63,7 +63,7 @@ class FlatChatItem extends StatelessWidget {
                               name ?? "Name",
                               style: TextStyle(
                                 fontSize: 16.0,
-                                color: nameColor ?? Color(0xFF262833),
+                                color: nameColor ?? Theme.of(context).primaryColorDark,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -78,7 +78,7 @@ class FlatChatItem extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w600,
-                                color: messageColor ?? Color(0xFF262833).withOpacity(0.4),
+                                color: messageColor ?? Theme.of(context).primaryColorDark.withOpacity(0.5),
                               ),
                             ),
                           ),

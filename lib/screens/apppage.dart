@@ -1,3 +1,4 @@
+import 'package:flatchat/flat_widgets/flat_action_btn.dart';
 import 'package:flatchat/flat_widgets/flat_add_story_btn.dart';
 import 'package:flatchat/flat_widgets/flat_chat_item.dart';
 import 'package:flatchat/flat_widgets/flat_counter.dart';
@@ -15,12 +16,13 @@ class AppPage extends StatefulWidget {
 }
 
 class _AppPageState extends State<AppPage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        color: Colors.white,
+        color: Theme.of(context).primaryColorLight,
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
@@ -28,7 +30,7 @@ class _AppPageState extends State<AppPage> {
               title: "Flat Chat",
             ),
             FlatSectionHeader(
-              text: "Moments",
+              title: "Moments",
             ),
             Container(
               height: 108.0,
@@ -76,7 +78,7 @@ class _AppPageState extends State<AppPage> {
               ),
             ),
             FlatSectionHeader(
-              text: "Marked Important",
+              title: "Marked Important",
             ),
             FlatChatItem(
               profileImage: FlatProfileImage(
@@ -91,7 +93,7 @@ class _AppPageState extends State<AppPage> {
               },
             ),
             FlatSectionHeader(
-              text: "Messages",
+              title: "Messages",
             ),
             FlatChatItem(
               profileImage: FlatProfileImage(

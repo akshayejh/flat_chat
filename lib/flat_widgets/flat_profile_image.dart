@@ -125,7 +125,7 @@ class OnlineIndicator extends StatelessWidget {
         decoration: BoxDecoration(
           color: color ?? Theme.of(context).primaryColor,
           border: Border.all(
-            color: borderColor ?? Colors.white,
+            color: borderColor ?? Theme.of(context).primaryColorLight,
             width: 2.5,
           ),
           borderRadius: BorderRadius.circular(15.0)

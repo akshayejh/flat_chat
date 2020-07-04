@@ -1,4 +1,3 @@
-import 'package:flatchat/flat_widgets/flat_profile_image.dart';
 import 'package:flutter/material.dart';
 
 class FlatPageHeader extends StatelessWidget {
@@ -26,7 +25,7 @@ class FlatPageHeader extends StatelessWidget {
       if(prefixWidget == null) {
         return 24.0;
       } else {
-        return 8.0;
+        return 16.0;
       }
     }
 
@@ -38,9 +37,30 @@ class FlatPageHeader extends StatelessWidget {
       }
     }
 
+    Color _backgroundColor() {
+      if(backgroundColor != null){
+        return backgroundColor;
+      } else {
+        return Theme.of(context).primaryColorLight;
+      }
+    }
+
     return Container(
       decoration: BoxDecoration(
-        color: backgroundColor ?? Colors.white,
+        gradient: LinearGradient(
+          begin: FractionalOffset.topCenter,
+          end: FractionalOffset.bottomCenter,
+          stops: [
+            0.0,
+            0.7,
+            1,
+          ],
+          colors: [
+            _backgroundColor(),
+            _backgroundColor().withOpacity(0.9),
+            _backgroundColor().withOpacity(0.0),
+          ]
+        )
       ),
       padding: EdgeInsets.only(
         top: 50.0,
@@ -62,7 +82,7 @@ class FlatPageHeader extends StatelessWidget {
                   child: Text(
                     title ?? "Header",
                     style: TextStyle(
-                      color: textColor ?? Colors.black,
+                      color: textColor ?? Theme.of(context).primaryColorDark,
                       fontSize: textSize ?? 30.0,
                       fontWeight: fontWeight ?? FontWeight.w700
                     ),

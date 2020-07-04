@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 class FlatSectionHeader extends StatelessWidget {
-  final String text;
+  final String title;
   final double textSize;
   final FontWeight fontWeight;
   final Color backgroundColor;
   final Color textColor;
-  FlatSectionHeader({this.text, this.textSize, this.fontWeight, this.backgroundColor, this.textColor});
+  FlatSectionHeader({this.title, this.textSize, this.fontWeight, this.backgroundColor, this.textColor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: backgroundColor ?? Colors.white,
+        color: backgroundColor,
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 24.0,
       ),
       child: Text(
-        text ?? "Section Header",
+        title ?? "Section Header",
         style: TextStyle(
-          color: textColor ?? Colors.black,
+          color: textColor ?? Theme.of(context).primaryColorDark,
           fontWeight: fontWeight ?? FontWeight.w700,
           fontSize: textSize ?? 16.0,
         ),

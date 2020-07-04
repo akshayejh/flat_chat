@@ -4,63 +4,31 @@ import 'package:flutter/material.dart';
 class FlatMessageInputBox extends StatelessWidget {
   final Widget prefix;
   final Widget suffix;
-  final bool floating;
-  FlatMessageInputBox({this.prefix, this.suffix, this.floating});
-
-  Widget _isFloating() {
-    if(floating != null && floating == true) {
-      return Positioned(
-        bottom: 24.0,
-        right: 24.0,
-        left: 24.0,
-        child: _FlatMessageBox(
-          floating: floating,
-          prefix: prefix,
-          suffix: suffix,
-        ),
-      );
-    } else {
-      return _FlatMessageBox(
-        floating: floating,
-        prefix: prefix,
-        suffix: suffix,
-      );
-    }
-  }
+  final bool roundedCorners;
+  FlatMessageInputBox({this.prefix, this.suffix, this.roundedCorners});
 
   @override
   Widget build(BuildContext context) {
-    return _isFloating();
-  }
-}
 
-class _FlatMessageBox extends StatelessWidget {
-  final Widget prefix;
-  final Widget suffix;
-  final bool floating;
-  _FlatMessageBox({this.prefix, this.suffix, this.floating});
-
-  double cornerRadius() {
-    if(floating != null && floating == true) {
-      return 60.0;
-    } else {
-      return 0.0;
+    double cornerRadius() {
+      if(roundedCorners != null && roundedCorners == true) {
+        return 60.0;
+      } else {
+        return 0.0;
+      }
     }
-  }
 
-  double padding() {
-    if(floating != null && floating == true) {
-      return 12.0;
-    } else {
-      return 8.0;
+    double padding() {
+      if(roundedCorners != null && roundedCorners == true) {
+        return 12.0;
+      } else {
+        return 8.0;
+      }
     }
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).primaryColorLight,
         borderRadius: BorderRadius.circular(cornerRadius()),
         boxShadow: [
           BoxShadow(
@@ -71,31 +39,44 @@ class _FlatMessageBox extends StatelessWidget {
           )
         ],
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: padding(),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          prefix ?? SizedBox(width: 0, height: 0,),
-          Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Enter Message...",
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.all(16.0,),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColorDark.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(cornerRadius()),
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: padding(),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            prefix ?? SizedBox(width: 0, height: 0,),
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Enter Message...",
+                  hintStyle: TextStyle(
+                    color: Theme.of(context).primaryColorDark.withOpacity(0.6),
+                  ),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.all(16.0,),
+                ),
+                style: TextStyle(
+                    color: Theme.of(context).primaryColorDark
+                ),
               ),
             ),
-          ),
-          suffix ?? SizedBox(width: 0, height: 0,),
-          FlatActionButton(
-            icon: Icon(
-              Icons.send,
-              size: 24.0,
+            suffix ?? SizedBox(width: 0, height: 0,),
+            FlatActionButton(
+              icon: Icon(
+                Icons.send,
+                size: 24.0,
+                color: Theme.of(context).primaryColorDark,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
