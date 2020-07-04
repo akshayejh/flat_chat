@@ -7,31 +7,136 @@ Flat Chat UI Kit
 
 ## Getting Started
 
-This project is currently work in progress.
+Welcome to Flat Social UI Kit for flutter. This project is currently work in progress.
 
 # Widgets:
 
-I will be writing complete documentation really soon.
+This project is currently work in progress. Some widgets might not have all the features yet. Stay tuned for latest updates.
 
 ## Page Wrapper
 
+   ```dart
     FlatPageWrapper(
-	    scrollType: ScrollType.fixedHeader, // There are two types of scroll header, one "Fixed Header", another "Floating Header"
-	    header: FlatPageHeader(), // Another widget from the UI Kit.
+	    scrollType: ScrollType.fixedHeader,
+	    header: FlatPageHeader(),
 	    children: [
 		    // Add widgets as you would do in a ListView.
 	    ]
     );
+   ```
 
-- Page Header
-- Section Header
-- Add Story Button
-- Profile Image
-- Chat List Item
-- Chat Message
-- Message Input Box
-- Counter
-- Action Button
+## Page Header
+
+   ```dart
+	FlatPageHeader(
+		prefixWidget: FlatActionButton(  
+			iconData: Icons.menu,  
+		),
+		title: "Page Title",
+		suffixWidget: FlatActionButton(  
+		  iconData: Icons.search,  
+		),
+   );
+   ```
+
+## Section Header
+
+   ```dart
+	FlatSectionHeader(
+		title: "Section Header",
+	);
+```
+
+## Add Story Button
+
+   ```dart
+	FlatAddStoryBtn(
+		size: 60.0,
+		icon: Icon(
+			Icons.message,
+		),
+		backgroundColor: Colors.white,
+		onPressed: () {
+			print("Clicked Add Story Button");
+		}
+	);
+```
+
+## Profile Image
+
+   ```dart
+	FlatProfileImage(
+		imageUrl: "https://imageurl.png", //Enter Image URL Here,
+		outlineIndicator: true,
+		onlineIndicator: true,
+		backgroundColor: Colors.white,
+		size: 60.0,
+		onPressed: () {
+			print("Clicked Add Story Button");
+		}
+	);
+```
+
+## Chat List Item
+   ```dart
+	FlatChatItem(
+		profileImage: FlatProfileImage(  
+		  onlineIndicator: true,  
+		  imageUrl: 'https://images.pexels.com/photos/3866555/pexels-photo-3866555.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',  
+		),  
+		name: "Name",  
+		message: "Message from the user.",  
+		multiLineMessage: true,  
+		onPressed: () {  
+		  print("Clicked on chat item."); 
+		},
+	);
+```
+
+## Chat Message
+   ```dart
+	FlatChatMessage(  
+	  message: "Message here...",  
+	  messageType: MessageType.sent,  
+	  showTime: true,  
+	  time: "2 mins ago",  
+	);
+```
+
+## Message Input Box
+   ```dart
+	FlatMessageInputBox(
+		prefix: FlatActionButton(  
+		  iconData: Icons.add,  
+		  iconSize: 24.0,  
+		),  
+		roundedCorners: true,  
+		suffix: FlatActionButton(  
+		  iconData: Icons.image,  
+		  iconSize: 24.0,  
+		),
+	);
+```
+
+## Counter
+   ```dart
+	FlatCounter(
+		text: "3",
+	);
+```
+
+## Action Button
+   ```dart
+	FlatActionButton(
+		iconData: Icons.menu,
+		iconSize: 32.0,
+		iconColor: Colors.black,
+		onPressed: () {
+			print("Clicked on Flat Action Button");
+		}
+	);
+```
+
 
 # How to use:
 
