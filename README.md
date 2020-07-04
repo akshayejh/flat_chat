@@ -45,13 +45,13 @@ FlatPageHeader() - can be used to create quick action bar.
 
 | Properties | Values |
 | ------------ | ------------ |
-| title |   |
-| textSize |   |
-| fontWeight |  |
-| backgroundColor |  |
-| textColor |  |
-| suffixWidget |  |
-| prefixWidget |  |
+| title |  "Page Title" - is the title of the page, visible in the PageHeader() |
+| textSize | **double** - Size of text |
+| fontWeight | **FontWeight** - Define custom font weight |
+| backgroundColor | **Color** - Custom background color for the whole header |
+| textColor | **Color** - Custom text color |
+| suffixWidget | **Widget** - You can add any widget at the end of page header. **FlatActionButton** - can make the job easier by placing the button at the correct place. |
+| prefixWidget | **Widget** - You can place another widget or **FlatActionButton** - to use it as a menu button or back button. |
 
 
 **Example: **
@@ -74,11 +74,11 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 | Properties | Values |
 | ------------ | ------------ |
-| title |  |
-| textSize |  |
-| fontWeight |  |
-| backgroundColor |  |
-| textColor |  |
+| title | "Section Title" - You can add section title text here. |
+| textSize | **double** - Customize size of text |
+| fontWeight | **FontWeight** - Customize Font Weight of the header |
+| backgroundColor | **Color** - Custom background color for the header |
+| textColor | **Color** - Custom text color for the header |
 
 
 **Example: **
@@ -93,12 +93,12 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 | Properties | Values |
 | ------------ | ------------ |
-| icon |  |
-| image |  |
-| backgroundColor |  |
-| iconColor |  |
-| size |  |
-| onPressed |  |
+| icon | **Icon** - Place an icon that you want to display in this button. |
+| image | **Image** - Assign an image instead of icon. Image will not be visible if icon is already assigned. |
+| backgroundColor | **Color** - Custom background color for the button. |
+| iconColor | **Color** - Custom icon color. |
+| size | **double** - Custom size of the button. |
+| onPressed | **Function** - Perform function when clicked. |
 
 **Example: **
 
