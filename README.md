@@ -1,6 +1,8 @@
 
 # Flat Social
 
+![alt Flat Social Cover](https://pbs.twimg.com/media/EcGkS32UwAALLqO?format=jpg&name=large)
+
 Flat Chat UI Kit - 1.0
 
 [![alt Become a patron](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://patreon.com/akshayejh)
