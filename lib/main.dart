@@ -1,5 +1,13 @@
+import 'package:flatchat/flat_widgets/flat_action_btn.dart';
 import 'package:flatchat/flat_widgets/flat_add_story_btn.dart';
+import 'package:flatchat/flat_widgets/flat_chat_item.dart';
+import 'package:flatchat/flat_widgets/flat_counter.dart';
+import 'package:flatchat/flat_widgets/flat_page_header.dart';
+import 'package:flatchat/flat_widgets/flat_profile_image.dart';
+import 'package:flatchat/flat_widgets/flat_section_header.dart';
 import 'package:flatchat/screens/apppage.dart';
+import 'package:flatchat/screens/chatpage.dart';
+import 'package:flatchat/screens/samplepage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,9 +34,12 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Color(0xffFCF9F5),
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: AppPage(),
-      ),
+      routes: {
+        AppPage.id: (context) => AppPage(),
+        ChatPage.id: (context) => ChatPage(),
+        SamplePage.id: (context) => SamplePage(),
+      },
+      initialRoute: AppPage.id,
     );
   }
 }
