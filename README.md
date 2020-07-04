@@ -15,6 +15,15 @@ This project is currently work in progress. Some widgets might not have all the 
 
 ## Page Wrapper
 
+|  Properties | Values |
+| ------------ | ------------ |
+| header | **FlatPageHeader** - Flat page header is another widget from the UI Kit, you can read more about it below. |
+| footer | **FlatMessageInputBox** - Flat message input box is another widget from the UI Kit, you can read more about it below.  |
+| backgroundColor | **Colors.white** - You can assign any color to the page background. |
+| scrollType | **ScrollType.floatingHeader** - Makes the header stick to the top and above the page content. **ScrollType.fixedHeader** - Makes the header stick to top, but with the content after it. |
+| children | You can add list of widgets to this property, just as you would do with a ListView. |
+| reverseBodyList | **true/false** -  If "true", the whole body content will be reveresed. It's useful for showing chat list. |
+
    ```dart
 	FlatPageWrapper(
 	    scrollType: ScrollType.fixedHeader,
