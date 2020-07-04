@@ -9,9 +9,10 @@ Flat Chat UI Kit - 1.0
 
 Welcome to Flat Social UI Kit for flutter. This project is currently work in progress.
 
-# Widgets - [View All](https://github.com/akshayejh/flat_chat/wiki/Widgets#widgets):
+# Widgets:
 
 This project is currently work in progress. Some widgets might not have all the features yet. Stay tuned for latest updates.
+You can read the full documentation [here](https://github.com/akshayejh/flat_chat/wiki/Widgets#widgets).
 
 - [Page Wrapper](https://github.com/akshayejh/flat_chat/wiki/Widgets#page-wrapper)
 - [Page Header](https://github.com/akshayejh/flat_chat/wiki/Widgets#page-header)
