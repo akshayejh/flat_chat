@@ -5,7 +5,9 @@ class FlatMessageInputBox extends StatelessWidget {
   final Widget prefix;
   final Widget suffix;
   final bool roundedCorners;
-  FlatMessageInputBox({this.prefix, this.suffix, this.roundedCorners});
+  final Function onChanged;
+  final Function onSubmitted;
+  FlatMessageInputBox({this.prefix, this.suffix, this.roundedCorners, this.onChanged, this.onSubmitted});
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,8 @@ class FlatMessageInputBox extends StatelessWidget {
             prefix ?? SizedBox(width: 0, height: 0,),
             Expanded(
               child: TextField(
+                onChanged: onChanged,
+                onSubmitted: onSubmitted,
                 decoration: InputDecoration(
                   hintText: "Enter Message...",
                   hintStyle: TextStyle(
