@@ -15,14 +15,18 @@ This project is currently work in progress. Some widgets might not have all the 
 
 ## Page Wrapper
 
+FlatPageWrapper() - helps you create quick pages with header, body and footer, with multiple scroll types.
+
 |  Properties | Values |
 | ------------ | ------------ |
 | header | **FlatPageHeader** - Flat page header is another widget from the UI Kit, you can read more about it below. |
 | footer | **FlatMessageInputBox** - Flat message input box is another widget from the UI Kit, you can read more about it below.  |
 | backgroundColor | **Colors.white** - You can assign any color to the page background. |
-| scrollType | **ScrollType.floatingHeader** - Makes the header stick to the top and above the page content. **ScrollType.fixedHeader** - Makes the header stick to top, but with the content after it. |
+| scrollType | **ScrollType.floatingHeader** - Makes the header stick to the top and above the page content. This will also make the **FlatMessageInputBox** floating.  **ScrollType.fixedHeader** - Makes the header stick to top, but with the content after it. |
 | children | You can add list of widgets to this property, just as you would do with a ListView. |
 | reverseBodyList | **true/false** -  If "true", the whole body content will be reveresed. It's useful for showing chat list. |
+
+**Example: **
 
    ```dart
 	FlatPageWrapper(
@@ -30,11 +34,27 @@ This project is currently work in progress. Some widgets might not have all the 
 	    header: FlatPageHeader(),
 	    children: [
 		    // Add widgets as you would do in a ListView.
-	    ]
+	    ],
+		footer: FlatMessageInputBox(),
 	);
    ```
 
 ## Page Header
+
+FlatPageHeader() - can be used to create quick action bar.
+
+| Properties | Values |
+| ------------ | ------------ |
+| title |   |
+| textSize |   |
+| fontWeight |  |
+| backgroundColor |  |
+| textColor |  |
+| suffixWidget |  |
+| prefixWidget |  |
+
+
+**Example: **
 
    ```dart
 	FlatPageHeader(
@@ -50,6 +70,19 @@ This project is currently work in progress. Some widgets might not have all the 
 
 ## Section Header
 
+FlatSectionHeader() - can be used to create division between different sections of page using a title for the section.
+
+| Properties | Values |
+| ------------ | ------------ |
+| title |  |
+| textSize |  |
+| fontWeight |  |
+| backgroundColor |  |
+| textColor |  |
+
+
+**Example: **
+
    ```dart
 	FlatSectionHeader(
 		title: "Section Header",
@@ -57,6 +90,17 @@ This project is currently work in progress. Some widgets might not have all the 
 ```
 
 ## Add Story Button
+
+| Properties | Values |
+| ------------ | ------------ |
+| icon |  |
+| image |  |
+| backgroundColor |  |
+| iconColor |  |
+| size |  |
+| onPressed |  |
+
+**Example: **
 
    ```dart
 	FlatAddStoryBtn(
@@ -73,6 +117,19 @@ This project is currently work in progress. Some widgets might not have all the 
 
 ## Profile Image
 
+| Properties | Values |
+| ------------ | ------------ |
+| outlineIndicator |  |
+| outlineColor |  |
+| onlineIndicator |  |
+| onlineColor |  |
+| imageUrl |  |
+| size |  |
+| onPressed |  |
+| backgroundColor |  |
+
+**Example: **
+
    ```dart
 	FlatProfileImage(
 		imageUrl: "https://imageurl.png", //Enter Image URL Here,
@@ -87,6 +144,21 @@ This project is currently work in progress. Some widgets might not have all the 
 ```
 
 ## Chat List Item
+
+| Properties | Values |
+| ------------ | ------------ |
+| profileImage |  |
+| name |  |
+| message |  |
+| counter |  |
+| nameColor |  |
+| messageColor |  |
+| backgroundColor |  |
+| multiLineMessage |  |
+| onPressed |  |
+
+**Example: **
+
    ```dart
 	FlatChatItem(
 		profileImage: FlatProfileImage(  
@@ -103,6 +175,20 @@ This project is currently work in progress. Some widgets might not have all the 
 ```
 
 ## Chat Message
+
+| Properties | Values |
+| ------------ | ------------ |
+| message |  |
+| messageType |  |
+| backgroundColor |  |
+| textColor |  |
+| time |  |
+| showTime |  |
+| maxWidth |  |
+| minWidth |  |
+
+**Example: **
+
    ```dart
 	FlatChatMessage(  
 		message: "Message here...",  
@@ -113,6 +199,16 @@ This project is currently work in progress. Some widgets might not have all the 
 ```
 
 ## Message Input Box
+
+| Properties | Values |
+| ------------ | ------------ |
+| prefix |  |
+| suffix |  |
+| roundedCorners |  |
+| WIP |  |
+
+**Example: **
+
    ```dart
 	FlatMessageInputBox(
 		prefix: FlatActionButton(  
@@ -128,6 +224,15 @@ This project is currently work in progress. Some widgets might not have all the 
 ```
 
 ## Counter
+
+| Properties | Values |
+| ------------ | ------------ |
+| color  |  |
+| textColor |  |
+| text |  |
+
+**Example: **
+
    ```dart
 	FlatCounter(
 		text: "3",
@@ -135,6 +240,17 @@ This project is currently work in progress. Some widgets might not have all the 
 ```
 
 ## Action Button
+
+| Properties | Values |
+| ------------ | ------------ |
+| icon |  |
+| iconData |  |
+| iconColor |  |
+| iconSize |  |
+| onPressed |  |
+
+**Example: **
+
    ```dart
 	FlatActionButton(
 		iconData: Icons.menu,
