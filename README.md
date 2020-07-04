@@ -91,6 +91,8 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 ## Add Story Button
 
+FlatAddStoryBtn()
+
 | Properties | Values |
 | ------------ | ------------ |
 | icon | **Icon** - Place an icon that you want to display in this button. |
@@ -117,16 +119,18 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 ## Profile Image
 
+FlatProfileImage() - let's you create quick profile image widgets, which can be customized to add story indicator and online indicator as well.
+
 | Properties | Values |
 | ------------ | ------------ |
-| outlineIndicator |  |
-| outlineColor |  |
-| onlineIndicator |  |
-| onlineColor |  |
-| imageUrl |  |
-| size |  |
-| onPressed |  |
-| backgroundColor |  |
+| outlineIndicator | **true/false** - If true, an outline will be visible similar to the story indicator of social media apps. |
+| outlineColor | **Color** - Assign custom color to the story indicator. |
+| onlineIndicator | **true/false** - If true, an online indicator will be visible below the profile image of the user. |
+| onlineColor | **Color** - Assign custom color to the online indicator. |
+| imageUrl | **String** - Assign an image url to load. |
+| size | **double** - Size of the image. |
+| backgroundColor | **Color** - Assign a custom background color to the image. This is necessary for the border of online indicator. **More Info Coming Soon.** |
+| onPressed | **Function** - Perform function when clicked. |
 
 **Example: **
 
@@ -147,15 +151,15 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 | Properties | Values |
 | ------------ | ------------ |
-| profileImage |  |
-| name |  |
-| message |  |
-| counter |  |
-| nameColor |  |
-| messageColor |  |
-| backgroundColor |  |
-| multiLineMessage |  |
-| onPressed |  |
+| profileImage | **Widget** - Assign a custom profile image to the item. **FlatProfileImage** - Can also be used to create quick profile image. |
+| name | **String** - Name of the user. |
+| message | **String** - Message from or to the user. |
+| counter | **Widget** - Assign a custom message count widget. **FlatCounter** - Can be used too. Read more about it below. |
+| nameColor | **Color** - Custom color to the name text. |
+| messageColor | **Color** - Custom color to the message text. |
+| backgroundColor | **Color** - Custom color to the background of the item. |
+| multiLineMessage | **true/false** - If true, it will allow the chat item to display the full message instead of single line ellipsed message. |
+| onPressed | **Function** - Perform function when clicked. |
 
 **Example: **
 
@@ -178,14 +182,14 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 | Properties | Values |
 | ------------ | ------------ |
-| message |  |
-| messageType |  |
-| backgroundColor |  |
-| textColor |  |
-| time |  |
-| showTime |  |
-| maxWidth |  |
-| minWidth |  |
+| message | **String** - Message from or to the user. |
+| messageType | **MessageType.sent** or **MessageType.received** to adjust the aligned and color of the message bubble. |
+| backgroundColor | **Color** - Custom background color to the message. |
+| textColor | **Color** - Custom text color. |
+| time | **String** - Enter a string to display time below the message. |
+| showTime | **true/false** - By default this value is false, and to display time below messsage, you need to change this to true. |
+| maxWidth | **double** - Maximum widget an message can occupy. |
+| minWidth | **double** - Minimum widget an message can occupy. |
 
 **Example: **
 
@@ -202,10 +206,10 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 | Properties | Values |
 | ------------ | ------------ |
-| prefix |  |
-| suffix |  |
-| roundedCorners |  |
-| WIP |  |
+| prefix | **Widget** - Add a custom widget before the message input field. **FlatActionButton** - Can be used. |
+| suffix | **Widget** - Add a custom widget after the message input field. **FlatActionButton** - Can be used. |
+| roundedCorners | **true/false** - Enables or disables rounded corners for the input box. |
+| WIP | **More Features Coming Soon** |
 
 **Example: **
 
@@ -227,9 +231,9 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 | Properties | Values |
 | ------------ | ------------ |
-| color  |  |
-| textColor |  |
-| text |  |
+| color  | **Color** - Custom background color for the counter. |
+| textColor | **Color** - Custom text color. |
+| text | **String** - Display text in counter. |
 
 **Example: **
 
@@ -243,11 +247,11 @@ FlatSectionHeader() - can be used to create division between different sections 
 
 | Properties | Values |
 | ------------ | ------------ |
-| icon |  |
-| iconData |  |
-| iconColor |  |
-| iconSize |  |
-| onPressed |  |
+| icon | **Icon** - Assign a custom icon widget to the button. |
+| iconData | **IconData** - Directly change the icon of the button. |
+| iconColor | **Color** - Change the color of the icon. |
+| iconSize | **double** - Change the size of the icon. |
+| onPressed | **Function** - Perform function when clicked. |
 
 **Example: **
 
