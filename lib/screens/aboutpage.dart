@@ -1,5 +1,6 @@
 import 'package:flatchat/flat_widgets/flat_info_page_wrapper.dart';
 import 'package:flatchat/flat_widgets/flat_primary_button.dart';
+import 'package:flatchat/screens/homepage.dart';
 import 'package:flutter/material.dart';
 
 class Aboutpage extends StatefulWidget {
@@ -32,6 +33,9 @@ class _AboutpageState extends State<Aboutpage> {
             vertical: 16.0,
           ),
           child: FlatPrimaryButton(
+            onPressed: () {
+              Navigator.pushNamed(context, Homepage.id);
+            },
             prefixIcon: Icons.arrow_back,
             textAlign: TextAlign.right,
             text: "Back to Homepage",
