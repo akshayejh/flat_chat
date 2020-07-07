@@ -1,4 +1,5 @@
-import 'package:flatchat/screens/apppage.dart';
+import 'package:flatchat/screens/aboutpage.dart';
+import 'package:flatchat/screens/loginpage.dart';
 import 'package:flatchat/screens/chatpage.dart';
 import 'package:flatchat/screens/homepage.dart';
 import 'package:flutter/material.dart';
@@ -41,11 +42,12 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        AppPage.id: (context) => AppPage(),
+        Loginpage.id: (context) => Loginpage(),
+        Aboutpage.id: (context) => Aboutpage(),
         ChatPage.id: (context) => ChatPage(),
         Homepage.id: (context) => Homepage(),
       },
-      initialRoute: Homepage.id,
+      initialRoute: Aboutpage.id,
     );
   }
 }
